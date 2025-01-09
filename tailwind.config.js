@@ -5,10 +5,13 @@ export default {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
+        "./src/**/*.{html,js}",
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/tw-elements/js/**/*.js",
         "./node_modules/flowbite/**/*.js",
+        './node_modules/swiper/**/*.js'
     ],
     darkMode: "media",
     theme: {

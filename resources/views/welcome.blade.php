@@ -9,11 +9,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name') }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <style>
         [x-cloak] {
             display: none !important;
         }
+    .swiper {
+        width: 40%; /* Atur lebar Swiper */
+        height: 60%; /* Atur tinggi Swiper */
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     </style>
 
     @filamentStyles
@@ -84,8 +105,8 @@
             </div>
         </nav>
     </header>
-    <section class="bg-white dark:bg-gray-900">         
-      <div
+    <section class="hero">
+        <div
   id="carouselExampleCaptions"
   class="relative"
   data-twe-carousel-init
@@ -225,7 +246,53 @@
   </button>
 </div>
     </section>
-   
+
+    <main>
+        <section>
+              <!-- Swiper -->
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="gambar/nest.png" alt=""></div>
+                  <div class="swiper-slide">Slide 2</div>
+                  <div class="swiper-slide">Slide 3</div>
+                  <div class="swiper-slide">Slide 4</div>
+                  <div class="swiper-slide">Slide 5</div>
+                  <div class="swiper-slide">Slide 6</div>
+                  <div class="swiper-slide">Slide 7</div>
+                  <div class="swiper-slide">Slide 8</div>
+                  <div class="swiper-slide">Slide 9</div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- Navigation -->
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+
+              <!-- Swiper JS -->
+              <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+              <!-- Initialize Swiper -->
+              <script>
+                var swiper = new Swiper(".mySwiper", {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                  nextEl: ".swiper-button-next", // Tombol navigasi berikutnya
+                  prevEl: ".swiper-button-prev", // Tombol navigasi sebelumnya
+                  },
+                });
+              </script>
+            </body>
+
+            </html>
+
+        </section>
+    </main>
+    <script type="module" src="app.js"></script>
+    <script type="text/javascript"  src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 @filamentScripts
 @vite('resources/js/app.js')

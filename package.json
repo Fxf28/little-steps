@@ -15,6 +15,10 @@
         "vite": "^6.0"
     },
     "dependencies": {
-        "flowbite": "^2.5.2"
+        "flowbite": "^2.5.2",
+        "tw-elements": "^2.0.0"
     }
+    
 }
+
+

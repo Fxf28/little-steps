@@ -31,16 +31,31 @@ class UserResource extends Resource
             ->schema([
                 Section::make()->schema([
                     Forms\Components\TextInput::make('name')
-                        ->required(),
+                        ->required()
+                        ->maxLength(255),
                     Forms\Components\TextInput::make('email')
                         ->email()
-                        ->required(),
-                    Forms\Components\DateTimePicker::make('email_verified_at'),
+                        ->required()
+                        ->unique(ignoreRecord: true),
+                    Forms\Components\DateTimePicker::make('email_verified_at')
+                        ->displayFormat('Y/m/d')
+                        ->closeOnDateSelection(),
                     Forms\Components\TextInput::make('password')
                         ->password()
+                        ->revealable()
                         ->dehydrateStateUsing(fn($state) => Hash::make($state))
                         ->dehydrated(fn($state) => filled($state))
                         ->required(fn(Page $livewire) => ($livewire instanceof CreateUser)),
+                    Forms\Components\Select::make('roles')
+                        ->multiple()
+                        ->relationship(name: 'roles', titleAttribute: 'name')
+                        ->searchable()
+                        ->preload(),
+                    Forms\Components\Select::make('permissions')
+                        ->multiple()
+                        ->relationship(name: 'permissions', titleAttribute: 'name')
+                        ->searchable()
+                        ->preload(),
                 ])->columns(2)
             ]);
     }
@@ -49,19 +64,18 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->dateTime('d-M-Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

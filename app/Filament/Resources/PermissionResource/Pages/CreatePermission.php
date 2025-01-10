@@ -15,6 +15,6 @@ class CreatePermission extends CreateRecord
     }
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Permission Created';
+        return 'Permission Registered';
     }
 }

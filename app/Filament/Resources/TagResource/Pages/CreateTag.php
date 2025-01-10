@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Filament\Resources\RoleResource\Pages;
+namespace App\Filament\Resources\TagResource\Pages;
 
-use App\Filament\Resources\RoleResource;
+use App\Filament\Resources\TagResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateRole extends CreateRecord
+class CreateTag extends CreateRecord
 {
-    protected static string $resource = RoleResource::class;
+    protected static string $resource = TagResource::class;
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Role Registered';
+        return 'Tag registered';
     }
 }

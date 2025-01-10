@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Models\User;
+use App\Policies\UserPolicy;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -22,6 +23,9 @@ use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
+    protected $policies = [
+        User::class => UserPolicy::class,
+    ];
     public function panel(Panel $panel): Panel
     {
         return $panel

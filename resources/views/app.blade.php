@@ -28,7 +28,6 @@
     <div id="loading" class="fixed inset-0 flex justify-center items-center bg-white dark:bg-slate-950 z-50">
         <div class="spinner-border animate-spin inline-block w-16 h-16 border-4 border-t-4 border-gray-200 border-t-primary rounded-full"
             role="status">
-            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 

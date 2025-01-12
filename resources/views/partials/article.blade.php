@@ -1,6 +1,7 @@
 <section id="article2" class="bg-white dark:bg-gray-900 p-4 md:p-8 lg:p-10">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <div class="container relative">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="container ">
         <div class="slide">
             <div class="item"
                 style="background-image: url(https://media.istockphoto.com/id/183381310/id/foto/kode-html.jpg?s=2048x2048&w=is&k=20&c=SD78jApHVbmcv8coLBbgJtQXg3a0Fqy7y_PG3RQyYfM=);">

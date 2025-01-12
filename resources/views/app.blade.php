@@ -6,28 +6,31 @@
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Your description here">
+    <meta property="og:image" content="{{ asset('gambar/nest.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('gambar/nest.png') }}">
 
     <title>Baby Fuel</title>
 
     <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        // On page load or when changing themes
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
                 '(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('dark');
         }
     </script>
+
     @filamentStyles
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'], ['defer' => true])
 </head>
 
 <body class="bg-white dark:bg-slate-950 antialiased">
     <!-- Spinner Loading -->
-    <div id="loading" class="fixed inset-0 flex justify-center items-center bg-white dark:bg-slate-950 z-50">
+    <div id="loading" class="fixed inset-0 flex justify-center items-center bg-white dark:bg-slate-950 z-50 hidden">
         <div class="spinner-border animate-spin inline-block w-16 h-16 border-4 border-t-4 border-gray-200 border-t-primary rounded-full"
-            role="status">
+            role="status" aria-hidden="true">
         </div>
     </div>
 
@@ -42,17 +45,20 @@
     </div>
 
     @filamentScripts
-    {{-- script smooth scrooling --}}
+
+    <!-- Smooth Scrolling and Active Links -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const links = document.querySelectorAll('a[href^="#"]');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
 
+            // Smooth scrolling
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     if (this.hash) {
                         e.preventDefault();
                         const target = document.querySelector(this.hash);
-
                         if (target) {
                             target.scrollIntoView({
                                 behavior: 'smooth',
@@ -62,25 +68,17 @@
                     }
                 });
             });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a'); // Sesuaikan selector jika navigasi berbeda
 
+            // Active link highlighting
             const setActiveLink = () => {
                 let currentSection = '';
-
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
-
                     if (window.scrollY >= sectionTop - sectionHeight / 3) {
                         currentSection = section.getAttribute('id');
                     }
                 });
-
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href').includes(currentSection)) {
@@ -89,57 +87,53 @@
                 });
             };
 
-            // Jalankan saat scroll
             window.addEventListener('scroll', setActiveLink);
         });
     </script>
-    {{-- script mode gelap --}}
+
+    <!-- Dark Mode Toggle -->
     <script>
-        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Change the icons inside the button based on previous settings
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-                '(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
+            const isDarkMode = () => localStorage.getItem('color-theme') === 'dark' ||
+                (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-        var themeToggleBtn = document.getElementById('theme-toggle');
-
-        themeToggleBtn.addEventListener('click', function() {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
+            const updateThemeIcons = () => {
+                if (isDarkMode()) {
                     document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
                 } else {
                     document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
                 }
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
+            };
+
+            themeToggleBtn.addEventListener('click', () => {
+                const newTheme = isDarkMode() ? 'light' : 'dark';
+                localStorage.setItem('color-theme', newTheme);
+                updateThemeIcons();
+            });
+
+            updateThemeIcons();
         });
     </script>
 
-    @vite('resources/js/app.js')
-
-    <!-- Menghilangkan spinner setelah halaman dimuat -->
+    <!-- Hide Spinner After Page Load -->
     <script>
-        window.addEventListener('load', function() {
-            document.getElementById('loading').style.display = 'none';
+        window.addEventListener('load', () => {
+            document.getElementById('loading').classList.add('hidden');
         });
     </script>
+
+    <!-- Fallback for JS-disabled Browsers -->
+    <noscript>
+        <p>Please enable JavaScript to view this page properly.</p>
+    </noscript>
 </body>
 
 </html>

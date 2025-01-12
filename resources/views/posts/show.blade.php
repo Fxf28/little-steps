@@ -35,12 +35,12 @@
                 <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
                     @forelse ($relatedPosts as $related)
                         <article class="max-w-xs">
-                            <a href="{{ route('post.show', $related->slug) }}">
+                            <a href="{{ route('posts.show', $related->slug) }}">
                                 <img src="{{ asset('storage/' . $related->thumbnail) }}" class="mb-5 rounded-lg"
                                     alt="{{ $related->title }}">
                             </a>
                             <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                                <a href="{{ route('post.show', $related->slug) }}">{{ $related->title }}</a>
+                                <a href="{{ route('posts.show', $related->slug) }}">{{ $related->title }}</a>
                             </h2>
                             <p class="mb-4 text-gray-500 dark:text-gray-400">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($related->content), 50) }}</p>

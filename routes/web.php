@@ -10,4 +10,5 @@ Route::get('/test', function () {
     return view('partials/article');
 });
 Route::get('/', [PostController::class, 'index'])->name('home');
-Route::get('/post/{slug}', [PostController::class, 'show'])->name('post.show');
+Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts', [PostController::class, 'allPosts'])->name('posts.all');

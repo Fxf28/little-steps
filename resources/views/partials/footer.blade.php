@@ -10,7 +10,7 @@
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
 
             <li>
-                <a href="{{ request()->is('/') ? '#' : url('/') }}"
+                <a href="{{ request()->is('/') ? '#hero' : url('/') }}"
                     class="block py-2 px-3 rounded md:p-0 mr-4 hover:underline md:mr-6
                        hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     Home

@@ -20,7 +20,8 @@
     },
     "dependencies": {
         "flowbite": "^2.5.2",
-        "swiper": "^11.2.0",
+        "flowbite-typography": "^1.0.5",
+        "swiper": "^11.2.1",
         "tw-elements": "^2.0.0"
     },
     "tags": [

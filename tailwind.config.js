@@ -11,9 +11,8 @@ export default {
         "./resources/**/*.vue",
         "./node_modules/tw-elements/js/**/*.js",
         "./node_modules/flowbite/**/*.js",
-        './node_modules/swiper/**/*.js'
     ],
-    darkMode: "media",
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -71,5 +70,5 @@ export default {
             ],
         },
     },
-    plugins: [require("flowbite/plugin"), require("tw-elements/plugin.cjs"),],
+    plugins: [require("flowbite/plugin"), require("tw-elements/plugin.cjs")],
 };

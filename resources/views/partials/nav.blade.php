@@ -45,19 +45,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ request()->is('/') ? '#about' : url('/#about') }}"
-                            class="block py-2 px-3 rounded md:p-0 
-                                   {{ request()->is('about') || (request()->is('/') && request()->path() == 'about') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
-                            aria-current="{{ request()->is('about') ? 'page' : '' }}">
-                            About
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{ request()->is('/') ? '#article' : url('/#article') }}"
                             class="block py-2 px-3 rounded md:p-0 
                                    {{ request()->is('article') || (request()->is('/') && request()->path() == 'article') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
                             aria-current="{{ request()->is('article') ? 'page' : '' }}">
                             Article
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ request()->is('/') ? '#about' : url('/#about') }}"
+                            class="block py-2 px-3 rounded md:p-0 
+                                   {{ request()->is('about') || (request()->is('/') && request()->path() == 'about') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
+                            aria-current="{{ request()->is('about') ? 'page' : '' }}">
+                            About
                         </a>
                     </li>
                     <li>

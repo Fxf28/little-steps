@@ -70,6 +70,7 @@
     font-weight: bold;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
+    color: black;
 }
 
 .content .des {
@@ -77,6 +78,7 @@
     margin-bottom: 20px;
     opacity: 0;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
+    color: black;
 }
 
 .content button {
@@ -85,6 +87,16 @@
     cursor: pointer;
     opacity: 0;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
+    color: black;
+}
+.dark .content .name  {
+    color: white;
+}
+.dark .content .des  {
+    color: white;
+}
+.dark .content button  {
+    color: white;
 }
 
 @keyframes animate {

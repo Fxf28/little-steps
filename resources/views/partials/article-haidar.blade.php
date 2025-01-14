@@ -3,6 +3,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="max-w-screen-md mx-auto mt-8 text-center">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white text-center">
+            Artikel Terbaru
+        </h2>
+        <p class="text-gray-500 sm:text-xl dark:text-gray-400 text-center">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        </p>
+    </div>
     <div class="container ">
         <div class="slide">
             @foreach ($posts as $post)

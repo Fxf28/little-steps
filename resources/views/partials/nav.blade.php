@@ -38,7 +38,7 @@
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
                     <li>
                         <a href="{{ request()->is('/') ? '#hero' : url('/') }}"
-                            class="block py-2 px-3 rounded md:p-0 
+                            class="block py-2 px-3 rounded md:p-0
                                    {{ request()->is('hero') || (request()->is('/') && request()->path() == 'hero') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
                             aria-current="{{ request()->is('/') || request()->is('hero') ? 'page' : '' }}">
                             Home
@@ -46,7 +46,7 @@
                     </li>
                     <li>
                         <a href="{{ request()->is('/') ? '#article' : url('/#article') }}"
-                            class="block py-2 px-3 rounded md:p-0 
+                            class="block py-2 px-3 rounded md:p-0
                                    {{ request()->is('article') || (request()->is('/') && request()->path() == 'article') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
                             aria-current="{{ request()->is('article') ? 'page' : '' }}">
                             Article
@@ -54,7 +54,7 @@
                     </li>
                     <li>
                         <a href="{{ request()->is('/') ? '#about' : url('/#about') }}"
-                            class="block py-2 px-3 rounded md:p-0 
+                            class="block py-2 px-3 rounded md:p-0
                                    {{ request()->is('about') || (request()->is('/') && request()->path() == 'about') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
                             aria-current="{{ request()->is('about') ? 'page' : '' }}">
                             About
@@ -62,7 +62,7 @@
                     </li>
                     <li>
                         <a href="{{ request()->is('/') ? '#contact' : url('/#contact') }}"
-                            class="block py-2 px-3 rounded md:p-0 
+                            class="block py-2 px-3 rounded md:p-0
                                    {{ request()->is('contact') || (request()->is('/') && request()->path() == 'contact') ? 'active text-white bg-blue-700' : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' }}"
                             aria-current="{{ request()->is('contact') ? 'page' : '' }}">
                             Contact

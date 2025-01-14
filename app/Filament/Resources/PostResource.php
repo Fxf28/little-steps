@@ -62,8 +62,6 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->limit(50),

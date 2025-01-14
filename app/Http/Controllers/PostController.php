@@ -12,7 +12,7 @@ class PostController extends Controller
         $posts = Post::with(['category', 'tags'])
             ->where('is_published', true)
             ->latest()
-            ->take(4)
+            ->take(5)
             ->get();
 
         return view('home', compact('posts'));

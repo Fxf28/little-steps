@@ -10,7 +10,7 @@
                     <div class="content">
                         <div class="name">{{ $post->title }}</div>
                         <div class="des">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 50) }}</div>
-                        <button><a href="{{ route('posts.show', $post->slug) }}">See More</a></button>
+                        <button><a target="_blank" href="{{ route('posts.show', $post->slug) }}">See More</a></button>
                     </div>
                 </div>
             @endforeach

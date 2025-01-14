@@ -10,7 +10,7 @@
     <meta property="og:image" content="{{ asset('gambar/nest.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('gambar/nest.png') }}">
 
-    <title>Baby Fuel</title>
+    <title>Little Steps</title>
 
     <script>
         // On page load or when changing themes
@@ -94,33 +94,48 @@
     <!-- Dark Mode Toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const darkIcon = document.getElementById('theme-toggle-dark-icon');
-            const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-            const isDarkMode = () => localStorage.getItem('color-theme') === 'dark' ||
-                (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    // Fungsi untuk memeriksa mode gelap
+    const isDarkMode = () => localStorage.getItem('color-theme') === 'dark' ||
+        (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-            const updateThemeIcons = () => {
-                if (isDarkMode()) {
-                    document.documentElement.classList.add('dark');
-                    darkIcon.classList.add('hidden');
-                    lightIcon.classList.remove('hidden');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    darkIcon.classList.remove('hidden');
-                    lightIcon.classList.add('hidden');
-                }
-            };
+    // Update ikon tema berdasarkan mode
+    const updateThemeIcons = () => {
+        if (isDarkMode()) {
+            document.documentElement.classList.add('dark');
+            darkIcon.classList.add('hidden');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+            lightIcon.classList.add('hidden');
+        }
+    };
 
-            themeToggleBtn.addEventListener('click', () => {
-                const newTheme = isDarkMode() ? 'light' : 'dark';
-                localStorage.setItem('color-theme', newTheme);
-                updateThemeIcons();
-            });
+    // Periksa dan atur tema saat halaman dimuat
+    updateThemeIcons();
 
-            updateThemeIcons();
-        });
+    // Menangani toggle tema saat tombol diklik
+    themeToggleBtn.addEventListener('click', () => {
+        const newTheme = isDarkMode() ? 'light' : 'dark';
+        localStorage.setItem('color-theme', newTheme);
+        updateThemeIcons();
+    });
+
+    // Cek preferensi tema sistem pengguna
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Terapkan tema gelap secara otomatis berdasarkan preferensi sistem pengguna saat halaman dimuat
+    if (prefersDarkScheme.matches && !localStorage.getItem('color-theme')) {
+        document.documentElement.classList.add('dark');
+        darkIcon.classList.add('hidden');
+        lightIcon.classList.remove('hidden');
+    }
+});
+
     </script>
 
     <!-- Hide Spinner After Page Load -->

@@ -10,7 +10,7 @@
     <meta property="og:image" content="{{ asset('gambar/nest.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('gambar/nest.png') }}">
 
-    <title>Baby Fuel</title>
+    <title>Little Steps</title>
 
     <script>
         // On page load or when changing themes
